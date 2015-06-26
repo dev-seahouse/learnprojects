@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/normalize.css">
+    <style>
+        .main-header       { background-color: #384047; }
+        .main-logo a       { background-color: #5fcf80; }
+        .main-nav a        { background-color: #3f8abf; }
+        .primary-content   { background-color: #caebf6; }
+        .secondary-content { background-color: #bfe3d0; }
+        .main-footer       { background-color: #b7c0c7; }
+
+
+        *{
+        box-sizing:border-box;
+
+        }
+
+        body{
+        font: 1.1/1.5em sans-serif;
+        color: #222;
+        background:#edeff0;
+
+        }
+        .main-header{
+        padding-top:20px;
+        padding-bottom:20px;
+        width:100%;
+
+        }
+        .main-nav li{
+        margin-top:10px;
+
+        }
+        .main-logo{
+        margin-bottom:0;
+        margin-top:0;
+        }
+        .main-logo a,.main-nav a{
+        display:block;
+        border-radius:5px;
+        text-align:center;
+        padding:15px 20px;
+        color:white;
+
+
+
+        }
+        .main-banner{
+        text-align:center;
+        padding:5px;
+
+
+        }
+        .col{
+        padding:20px;
+
+        }
+
+        .main-footer{
+        padding:20px;
+        text-align:center;
+
+        }
+        .feat-img{
+        width:100%;
+        margin-top:10px;
+        margin-bottom:10px;
+
+        }
+        /*building a bottom up page*/
+        @media(min-width:769px)
+        {
+            html, body, .main-wrapper, .col, .content-group{
+            height:100%;
+            }
+
+           .main-logo, .main-nav li{
+
+            float:left;
+            }
+
+            .main-logo{
+            margin-right:80px;
+            }
+
+            .main-nav li{
+            margin-right:8px;
+            }
+
+                .main-banner{
+        background: #dfe2e4;
+        text-align: center;
+        padding:35px 15px;
+
+    }
+
+            .col{
+            float:left;
+            width:30%;
+
+            }
+            .primary-content{
+            width:40%;
+
+
+            }
+            .col::last-child{
+            float:right;
+            }
+    .extra-content,
+    .main-banner{
+        display: block;
+    }
+
+
+
+            .group::after{
+            content:"";
+            display:table;
+            clear:both;
+
+
+            }
+                .feat-img{
+        width: 50%;
+        float:left;
+        margin-right: 20px;
+    }
+
+
+
+
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<div class="main-wrapper">
+    <header class="main-header group">
+        <h1 class="main-logo"><a>Logo</a></h1>
+        <ul class="main-nav">
+            <li><a>Link 1</a></li>
+            <li><a>Link 2</a></li>
+            <li><a>Link 3</a></li>
+            <li><a>Link 4</a></li>
+        </ul>
+
+    </header>
+    <div class="main-banner">
+        <h1>This is the Main Banner Heading</h1>
+        <p>Andouille pork chop pancetta drumstick ground round beef ribs swine brisket ham.</p>
+
+    </div>
+    <div class="content-group group">
+        <div class="extra-content col">
+            <h3>Extra Content</h3>
+            <p>Filet mignon turkey flank doner strip steak. Frankfurter ham hock turkey, venison sirloin pig chuck shank capicola hamburger doner spare ribs boudin.</p>
+            <hr>
+            <p> Drumstick bresaola meatloaf ham hock salami tri-tip landjaeger beef filet mignon biltong boudin turkey.</p>
+        </div>
+
+        <div class="primary-content col">
+                <img class="feat-img" src="http://lorempixel.com/400/300">
+                <h3>Primary Content</h3>
+                <p>Bacon ipsum dolor sit amet chicken pork ground round brisket corned beef ball tip shank tail salami filet mignon ham hock pork belly venison shankle. Pig kielbasa drumstick sausage pork chop boudin. Chicken t-bone salami pork chop, beef ribs kevin ham tri-tip beef venison biltong brisket.</p>
+                <p>Venison strip steak meatball chicken, brisket prosciutto sirloin. Capicola drumstick brisket tri-tip salami. Chicken beef jerky, tail turkey prosciutto cow ham sirloin boudin tenderloin. Meatloaf tri-tip turducken brisket andouille, pork belly corned beef fatback hamburger.</p>
+        </div>
+        <div class="secondary-content col">
+                <h3>Secondary Content</h3>
+                <p>Strip steak tenderloin kevin swine meatloaf capicola, doner beef turducken pancetta corned beef pork loin shoulder.</p>
+                <hr>
+                <p>Pork filet mignon leberkas, tail swine venison pancetta turkey shoulder brisket chalkers likes hamburgers.</p>
+        </div>
+
+
+    </div>
+    <footer class="main-footer">
+            <p>&copy;2014 Example Layout</p>
+    </footer>
+</div>
+
+</body>
+
+
+</html>
