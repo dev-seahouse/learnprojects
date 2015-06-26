@@ -1,0 +1,39 @@
+body {
+  background: #2f558e url(../img/bg.png) repeat 0 0;
+  background-size: 400px auto;
+  font-family: sans-serif;
+}
+img {
+  display: block;
+  width: 150px;
+  margin: 100px auto;
+}
+button {
+  background: #dae1e4;
+  border: none;
+  border-radius: 5px;
+  color: #1d3c6a;
+  font-size: 24px;
+  width: 480px;
+  /* Paddings of spoiler div push button */
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  /* =================*/
+  padding: 40px 0;
+  outline: none;
+  cursor: pointer;
+}
+.spoiler {
+	background: #1d3c6a;
+  width: 440px;
+  margin: 0 auto 20px;
+  border-radius: 5px;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 24px
+}
+.spoiler span {
+  color: #dae1e4;
+}
