@@ -7,6 +7,7 @@ var context = $canvas[0].getContext("2d");
 var lastEvent;
 var mouseDown = false;
 // When click on control list itesms
+// when using .click, new elements created on the fly will not have the event handler.
 $(".controls").on("click", "li", function() {
     // Deselect siling elements
     $(this).siblings().removeClass("selected");

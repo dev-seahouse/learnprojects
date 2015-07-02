@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<input type="checkbox" checked = "checked" id = "checkBox" />
+	<label for = "checkBox">Check me</label>
+	<div id = "greatphoto">
+		<li title ="data">item 1</li>
+		<li title ="data">item 2</li>
+		<li title ="data">item 3</li>
+		<li title ="data">item 4</li>
+		<li title ="data">item 5</li>
+	</div>
+	<script type="text/javascript">
+		var elem = document.getElementById("checkBox");
+		var $listItems = $("#greatphoto li");
+		$listItems.attr("title" ,function(i,val){
+			return val + "photo" + i+1;
+		})
+	</script>
+</body>
+</html>
