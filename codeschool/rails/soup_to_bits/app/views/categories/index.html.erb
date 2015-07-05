@@ -1,0 +1,11 @@
+<h1>Soup Categories<h1>
+<ul>
+	<% @categories.each do |category| %>
+
+	<li><%= link_to category.name, category %> (<%=category.soups.count%>) </li>
+
+	<% end %>
+	<% if session[:vip] %>
+	<li>Super secret Bouillon</li>
+	<% end %>
+</ul>
