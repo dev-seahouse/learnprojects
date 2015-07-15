@@ -1,7 +1,3 @@
-// Place all the styles related to the Books controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-$finishedColor :green;
 h3 { margin-top: 0; }
 
 .rating { max-width: 97px; font-size: 1.8em; padding-top:8px; }
@@ -12,3 +8,5 @@ h3 { margin-top: 0; }
 .rating-1 .rating { color:#d9534f; }
 
 .col-sm-8 li { padding-bottom: 1em; }
+
+.book-form{display: none;}
