@@ -8,9 +8,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 
-<body>
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="100">
     <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
         <div class="container">
             <ul class="nav navbar-nav">
@@ -24,7 +25,7 @@
                     <a class="nav-link" href="#speakers">Speakers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#schedule">Schedule</a>
+                    <a class="nav-link" href="#schedules">Schedule</a>
                 </li>
             </ul>
             <a class="navbar-brand pull-sm-right m-r-0 hidden-xs-down" href="www.treehouse.com">Presented by Trehouse</a>
@@ -41,7 +42,7 @@
         </div>
     </div>
     <div class="container p-t-2">
-        <div class="row">
+        <div id="about" class="row">
             <div class="col-lg-4 col-lg-push-4">
                 <h3 m-b-3>About Full Stack Conf</h3>
                 <img class="m-b-1 img-fluid img-rounded hidden-xs-down" src="img/pdx.jpg" alt="Portland" />
@@ -67,7 +68,7 @@
             </div>
         </div>
         <!-- speakers -->
-        <h1 id="Speakers" class="display-4 text-xs-center m-y-3 text-muted">Speakers</h1>
+        <h1 id="speakers" class="display-4 text-xs-center m-y-3 text-muted">Speakers</h1>
         <div class="row">
             <div class="col-md-6 col-lg-4">
                 <div class="card">
@@ -126,7 +127,7 @@
             </div>
         </div>
         <!-- /speakers -->
-        <h1 class="display-4 text-xs-center m-y-3 text-muted">Schedule</h1>
+        <h1 id="schedules" class="display-4 text-xs-center m-y-3 text-muted">Schedule</h1>
         <ul class="list-group">
             <li class="list-group-item">
                 <h4 class="list-group-item-heading">Keynote: Internet of Things<span class="label label-info label-pill pull-xs-right">9:00am</span></h4> NodeStradamus
@@ -150,7 +151,7 @@
                 <h4 class="list-group-item-heading">What's Babel? <span class="label label-info label-pill pull-xs-right">3:00pm</span></h4> Json Babel
             </li>
         </ul>
-        <button type="button" class="btn btn-info-outline btn-lg center-block m-y-3" data-toggle="modal" data-target="#register" >don't miss out, register now</button>
+        <button type="button" class="btn btn-info-outline btn-lg center-block m-y-3" data-toggle="modal" data-target="#register">don't miss out, register now</button>
         <!-- signup form -->
         <hr>
         <div class="row p-y-2 text-muted">
@@ -207,7 +208,7 @@
     <div class="modal fade" id="register">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
@@ -215,11 +216,108 @@
                     <h4 class="modal-title">Register for Full Stack Conf</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Form goes here&hellip;</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <!--=======================================
+                    =            Registration form            =
+                    ========================================-->
+                    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                        <buttn class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </buttn>
+                        <strong>Hurry!</strong>Early Bird promotion ends in 2 days!
+                    </div>
+                    <form>
+                        <h5 class="m-b-2">Basic Info</h5>
+                        <fieldset class="form-group">
+                            <label for="name">
+                                Name: </label>
+                            <input type="text" class="form-control" id="name">
+                        </fieldset>
+                        <fieldset class="form-group has-danger">
+                            <label for="mail" class="form-control-label p-l-0">Email: </label>
+                            <input type="email" class="form-control form-control-danger" id="mail">
+                        </fieldset>
+                        <fildset class="form-group">
+                            <label for="role" class="role">Job Role:</label>
+                            <select name="user_role" id="role" class="form-control c-select">
+                                <option value="full stack js developer">Full Stack JavaScript Developer</option>
+                                <option value="front end developer">Front End Developer</option>
+                                <option value="back end developer">Back End Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="student">Student</option>
+                            </select>
+                        </fildset>
+                        <hr class="m-y-2">
+                        <h5 class="m-b-2">Which Topics Interest You Most?</h5>
+                        <div class="form-group c-inputs-stacked">
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" class="checkbox">
+                                <span class="c-indicator"></span> Javascript Framworks
+                            </label>
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" class="checkbox">
+                                <span class="c-indicator"></span> Javascript Libraries
+                            </label>
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" class="checkbox">
+                                <span class="c-indicator"></span> Node.js
+                            </label>
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" class="checkbox">
+                                <span class="c-indicator"></span> Build Tools
+                            </label>
+                            <label class="c-input c-checkbox">
+                                <input type="checkbox" class="checkbox">
+                                <span class="c-indicator"></span> ES2015
+                            </label>
+                            <hr class="m-b-2">
+                            <h5 class="m-b-2">Payment Info</h5>
+                            <div class="row">
+                                <div class="col-lg-6 form-group has-success">
+                                    <label class="form-control-label p-l-0" for="cc-num">Card Number:</label>
+                                    <input class="form-control form-control-success" id="cc-num" type="text">
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="zip">Zip Code:</label>
+                                    <input class="form-control" id="zip" type="text">
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="cvv">CVV:</label>
+                                    <input class="form-control" id="cvv" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-lg-12">Expiration Data</label>
+                                <div class="form-group col-lg-8">
+                                    <select class="c-select form-control" id="exp-month">
+                                        <option value="1">1 - January</option>
+                                        <option value="2">2 - February</option>
+                                        <option value="3">3 - March</option>
+                                        <option value="4">4 - April</option>
+                                        <option value="5">5 - May</option>
+                                        <option value="6">6 - June</option>
+                                        <option value="7">7 - July</option>
+                                        <option value="8">8 - August</option>
+                                        <option value="9">9 - September</option>
+                                        <option value="10">10 - October</option>
+                                        <option value="11">11 - November</option>
+                                        <option value="12">12 - December</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <select class="c-select form-control" id="exp-year">
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="m-b-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                    </form>
+                    <!--====  End of Registration form  ====-->
                 </div>
             </div>
             <!-- /.modal-content -->
