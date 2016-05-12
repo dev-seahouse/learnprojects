@@ -95,6 +95,8 @@ PLATFORMS
 
 DEPENDENCIES
   middleman
+  middleman-cli
+  middleman-core
   tzinfo-data
   wdm (>= 0.1.0)
 
