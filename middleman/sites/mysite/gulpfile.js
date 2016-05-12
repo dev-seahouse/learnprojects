@@ -43,4 +43,10 @@ gulp.task('watch', function(){
     gulp.watch(['./source/stylesheets/style.css','./source/javascripts/*.js', './source/**/*.erb'], function (files){
         livereload.changed(files)
     });
+
+    gulp.watch(['./source/**/*.erb']), function(e){
+        gulp.src(e.path)
+        .pipe(wait(1000))
+        .pipe(livereload({reloadPage:"http://192.168.2.127:4567/"}));
+    }
 });

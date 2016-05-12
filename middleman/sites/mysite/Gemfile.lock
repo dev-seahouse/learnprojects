@@ -88,15 +88,15 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    wdm (0.1.1)
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
   middleman
-  middleman-cli
   tzinfo-data
-  wdm (~> 0.1.0)
+  wdm (>= 0.1.0)
 
 BUNDLED WITH
    1.12.3
