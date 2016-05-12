@@ -8,6 +8,7 @@ gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
-gem 'middleman'
+gem 'middleman', '~>3.3.12'
+gem 'middleman-livereload', '~>3.1.0'
 gem 'middleman-cli'
-gem 'middleman-core'
+gem 'middleman-blog'
