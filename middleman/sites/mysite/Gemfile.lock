@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  tzinfo-data
+  wdm (~> 0.1.0)
+
+BUNDLED WITH
+   1.12.3
