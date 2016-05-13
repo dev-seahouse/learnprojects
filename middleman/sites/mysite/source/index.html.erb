@@ -3,4 +3,9 @@ title: Welcome to Middleman
 ---
 <div class="container">
     <h1>This is where content</h1>
+     <h2>Check out our blog</h2>
+    <br/>
+    <% blog.articles[0...5].each do |article| %>
+        <%= article.title %>
+    <% end %>
 </div>

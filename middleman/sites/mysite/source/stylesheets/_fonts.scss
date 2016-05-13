@@ -1,2 +1,27 @@
+$line-height: 1.5 !default;
 
+@mixin generate_heading ($font-size, $margin) {
+    font-size: rem($font-size);
+    margin: rem($margin) 0;
+}
 
+h1,h2,h3,h4.h5,h6,p{
+    line-height: $line-height;
+}
+
+h2 {
+    @include generate_heading(32px, 20px);
+}
+h3 {
+    @include generate_heading(24px, 20px);
+}
+h4 {
+    @include generate_heading(18px, 20px);
+}
+
+p {
+    font-size: rem(18px);
+    line-height: 1.8;
+    color: #787f8c;
+    margin: rem(30px) 0;
+}
