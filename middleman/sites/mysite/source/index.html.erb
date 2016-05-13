@@ -3,9 +3,18 @@ title: Welcome to Middleman
 ---
 <div class="container">
     <h1>This is where content</h1>
-     <h2>Check out our blog</h2>
-    <br/>
-    <% blog.articles[0...5].each do |article| %>
-        <%= article.title %>
+
+    <h2>Check out my videos</h2>
+    <br>
+
+    <% blog('videos').articles[0...5].each do |article| %>
+        <a href="<%= article.url %>"><%= article.title %></a><br>
     <% end %>
+
+    <h2>Checkout my articles</h2>
+
+    <% blog('text').articles[0...5].each do |article| %>
+        <a href="<%= article.url %>"><%= article.title %></a><br>
+    <% end %>
+
 </div>
