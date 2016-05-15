@@ -31,12 +31,21 @@ page '/*.txt', layout: false
 activate :blog do |blog|
   blog.name = 'videos'
   blog.prefix = 'videos'
+  blog.permalink = "{title}"
+  blog.new_article_template = "source/article-templates/video-template.erb"
 end
 
 activate :blog do |blog|
   blog.name = 'text'
+  blog.permalink = "{title}"
   blog.prefix = 'text'
 end
+
+set :css_dir , 'stylesheets'
+set :js_dir, 'javascripts'
+set :image_dir, 'images'
+
+activate :directory_indexes
 
 # Build-specific configuration
 configure :build do
