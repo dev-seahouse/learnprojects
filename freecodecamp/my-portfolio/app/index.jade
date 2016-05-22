@@ -1,1 +1,73 @@
 extends layouts/default
+
+block title
+  title Welcome to Kenan's personal website
+
+block content
+  div.logo
+    a(href="#about") KN
+  nav.nav
+      ul
+        li
+            a(href="#about") About
+        li
+            a(href="#portfolio") Porfolio
+        li
+            a(href="#skills") Skills
+        li
+            a(href="#contact") Contact
+  header#about
+    div.jumbotron.container
+        div.jumbotron-header
+            h1.display-l HAND-CRAFTED
+            h2.display-m Web Sites
+            h3.display-s From Scratch
+        div.jumbotron-content
+            p Hello! My name is Kenan, and I'm a Singapore-based web developer with strong computer science background.
+            p I'm still new in the wonderful world of web technologies, and this is the second version of my personal website.
+            p I have a diverse set of skills, ranging from digital media marketing, web design, Jade + Sass + Javascript, all the way up to Ruby on Rails, Php and Java programming.
+  section#portfolio
+    div.portfolio
+        ul
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+            li
+                img.img-fluid(src="http://placehold.it/350x350")
+
+  section#skills
+    div.skills.container
+        h1 Skills
+        p Ever since I was a little boy, I have huge interests in everything having to do with computers. I used to secretly take apart my parents' desktops and laptops when i was young, fasinated by the intrigueing little parts that come together to work like magic, and often end up broken computers and my forgiving parents pretending to be mad at me.
+        p I am fortunate enough to be formally introduced into the world of computing as a Information Technology student in Singapore Polytechnic and now a Computer Science student in National University of Singapore.
+        p I specialise in web development, and have a wide range of skills that include social media marketing (have worked with real client in F&B industry), Web Design (Mobile-first,  Content-oriented designs), front-end web development using HTML (HTML4, HTML5, Jade), CSS (CSS3, Foundation, Bootstrap), Javascript (Jquery). Back-end development using PHP and Ruby on Rails, Linux web server deployment(Apache, Ngix), MySQL, Windows server administration, Data structure and algorithms in Java.
+  section#contact
+    div.contact.container
+        h1 Contact
+        form
+            fieldset
+                div.name
+                    label.name(for="name") Name:
+                    input#name.name(name="name" type="text" required tabindex="1")
+                div.email
+                    label.email(for="email") Email:
+                    input#email.email(name="email" type="email" required tabindex="2")
+                div.message
+                    label.message(for="message") Message:
+                    textarea#message.message(required tabindex="3")
+                div.submit
+                    button(type="submit" tabindex="4") Send
+  footer
+
+

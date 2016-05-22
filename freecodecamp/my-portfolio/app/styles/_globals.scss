@@ -1,0 +1,322 @@
+/* general */
+html, body {
+    height: 100%;
+    background-color: $body-bg;
+    color: $body-color;
+}
+a {
+    color: $link-color;
+    text-decoration: $link-decoration;
+    border-bottom: 1px solid $copper;
+
+    &:hover {
+        color: lighten($link-color, 50%);
+    }
+}
+
+/* layouts */
+.container {
+    position: relative;
+    width: 75%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+#about {
+    height: 95vh;
+    background: $black;
+}
+#about:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+    background: url("/images/handcraft.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+#portfolio {
+    background-color: white;
+    width: 100%;
+    margin: 0 auto;
+    @include clearfix();
+}
+.portfolio {
+    ul {
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        margin: 2%;
+
+        @media screen and (min-width:$screen-width-s) {
+            float: left;
+            width: 45%;
+            margin: 2.5%;
+            background-color: #f5f5f5;
+            color: #bdc3c7;
+        }
+        @media screen and (min-width:$screen-width-m) {
+            margin: 1%;
+            width: (94% /3);
+            width: calc(94% /3);
+        }
+        @media screen and (min-width:1100px) {
+            margin: 1.5%;
+            width: (88% / 4);
+            width: calc(88% /4);
+        }
+        @media screen and (min-width:1500px) {
+            margin: 1.2%;
+            width: (88% / 5);
+            width: calc(88% / 5);
+        }
+    }
+    img {
+        text-align: center;
+
+        @media screen and (min-width:$screen-width-s) {
+            display: inline-block;
+        }
+    }
+}
+#skills {
+    height: auto;
+    position: relative;
+    background: black;
+    text-align: justify;
+    color: white;
+
+    h1 {
+        color: $copper;
+    }
+}
+#skills:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.25;
+    background: url("/images/computer.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+.skills {
+    font-size: 1.2rem;
+    max-width: 800px;
+    position: relative;
+    height: 50%;
+    padding-top: 8em;
+    padding-bottom: 12em;
+
+    h1 {
+        text-align: center;
+    }
+}
+#contact {
+    height: auto;
+    position: relative;
+    background: white;
+    text-align: justify;
+    color: $copper;
+}
+.contact {
+    @extend .skills;
+    padding-top: 1em;
+
+    form {
+        width: 100%;
+    }
+    fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        height: auto;
+        margin: 0;
+        outline: 0;
+        padding: 15px;
+        width: 100%;
+        background-color: #f2e6d9;
+        color: #8a97a0;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+        margin-bottom: 30px;
+        &:focus{
+            border:1px solid black;
+        }
+    }
+    button {
+        padding: 19px 39px 18px 39px;
+        color: #FFF;
+        background-color: $copper;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        width: 100%;
+        border: 1px solid darken($copper, 10%);
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+        margin-bottom: 10px;
+    }
+}
+
+/* components */
+.nav {
+    height: 4rem;
+    // 64px
+    position: absolute;
+    bottom: 0;
+    z-index: 9999999;
+    left: 12.5%;
+
+    // (100- width of container)/2
+
+    @media screen and (min-width:$screen-width-s) {
+        left: 12.5%;
+        right: 12.5%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    ul {
+        padding-left: 0;
+        display: block;
+    }
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+
+        //16px
+        &:last-child {
+            margin-right: 0;
+        }
+        @media screen and (min-width:$screen-width-s) {
+            width: 20%;
+            // 80/4
+        }
+    }
+    &.stick {
+        box-shadow: -1px 2px 2px 0 rgba(0, 0, 0, 0.2);
+        width: 100%;
+        background: transparentize($black, .1);
+        height: 1.4rem;
+        position: fixed;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        top: 0;
+
+        a {
+            font-family: $font-family-sans-serif;
+            font-size: .8rem;
+            border: none;
+            text-transform: uppercase;
+        }
+        ul {
+            margin-left: 1%;
+        }
+    }
+}
+.logo {
+    background: $black;
+
+    a {
+        display: block;
+        text-align: center;
+        line-height: calc(35px + 1vh);
+        width: calc(35px + 1vh);
+        background: $copper;
+        color: black;
+        font-weight: bold;
+        font-family: $font-family-sans-serif;
+    }
+}
+.jumbotron {
+    height: 80%;
+    position: relative;
+
+    .display-l {
+        font-size: 2rem;
+
+        //38.4px
+
+        @media screen and (min-width:$screen-width-s) {
+            font-size: 3rem;
+            //fallback
+            font-size: calc(3rem + 2vw);
+        }
+        @media screen and (min-width:$screen-width-m) {
+            float: none;
+            display: inline-block;
+        }
+    }
+    .display-m {
+        color: white;
+        font-size: 1.5rem;
+
+        @media screen and (min-width:$screen-width-s) {
+            float: left;
+            font-size: 2rem;
+            font-size: calc(2rem + 2vw);
+        }
+        @media screen and (min-width:$screen-width-m) {
+            float: none;
+            display: inline-block;
+        }
+    }
+    .display-s {
+        font-size: 1rem;
+
+        @media screen and (min-width:$screen-width-s) {
+            font-size: calc(1rem + 1vw);
+            display: inline-block;
+        }
+        @media screen and (min-width:$screen-width-m) {
+            float: none;
+            display: block;
+        }
+    }
+    .jumbotron-header {
+        @media screen and (min-width:$screen-width-m) {
+            width: 80%;
+            position: relative;
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+    .jumbotron-content {
+        max-width: 600px;
+        font-family: $font-family-serif;
+        color: white;
+        line-height: 1.5;
+        font-size: .868rem;
+
+        @media screen and (min-width:$screen-width-s) {
+            position: relative;
+            top: 8%;
+            font-size: .868rem;
+            font-size: calc(.868rem + .8vw);
+            clear: both;
+        }
+        @media screen and (min-width:$screen-width-m) {
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
