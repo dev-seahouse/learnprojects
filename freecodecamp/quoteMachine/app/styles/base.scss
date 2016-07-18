@@ -1,9 +1,17 @@
 /* Base */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
     color: #000;
-    line-height:1.5; 
 }
 
 .browserupgrade {
