@@ -1,17 +1,15 @@
 ;
 //TODO : learn how this works https://github.com/davidmerfield/randomColor/blob/master/randomColor.js
 var getRandomColor = function getRandomRolor() {
-    var letters = '012345'.split('');
-    var color = '#';
-    color += letters[Math.round(Math.random() * 5)];
-    letters = '0123456789ABCDEF'.split('');
-    for (var i = 0; i < 5; i++) {
-        color += letters[Math.round(Math.random() * 15)];
+    var letters = '0123456789'.split(''),
+        color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.round(Math.random() * 10)];
     }
     return color;
 }
 
-function setRandomColor(){
+var setRandomColor = function setRandomColor() {
     var randColor = getRandomColor();
     $('.js-rand-bg').css({
         'background-color': randColor
@@ -40,15 +38,14 @@ var ApiHelper = (function() {
             xhr = new window.XMLHttpRequest(),
             settings = this.settings,
             url = this.url;
-        console.log(url);
 
         // build request string
         requestString = function requestString(params) {
-            var reqStr = url;
-            console.log(params);
-            if (params) {
-                var keys = Object.keys(params);
+            var keys,
+                reqStr = url;
 
+            if (params) {
+                keys = Object.keys(params);
                 reqStr += '?';
 
                 // append each params to url
@@ -57,7 +54,6 @@ var ApiHelper = (function() {
                     reqStr += elem + '=' + params[elem];
                     reqStr += index === keys.length - 1 ? '&' + new Date().getTime() : '&'; // if theres still stuff append &
                 });
-                console.log('Test requestString() function :  ' + reqStr);
             }
             return reqStr || console.log('error buiding requestString');
         }
@@ -103,7 +99,7 @@ var RandomPhoto = (function() {
 
     // constructor
     var Photo = function(callback) {
-        this.data = this.getNext(callback);
+        this.getNext(callback);
     };
 
     // get the url of the next random photo
@@ -124,7 +120,6 @@ var RandomQuote = (function() {
 
     // constructor
     Quote = function Quote(callback) {
-        this.callback = callback || function() {};
         this.getNext(callback);
     }
 
@@ -139,23 +134,20 @@ var RandomQuote = (function() {
 
     Quote.prototype.getNext = function nextQuote(callback) {
         quoteApi.send((function(res) {
-            // will only be called after data received
-            this.data = res[0];
-            this.callback();
+            if (callback) callback(res[0]);
         }).bind(this));
     }
 
     return Quote;
 }());
-var quote = new RandomQuote(function() {
-    // generate random color and set color of body
-    // TODO: colorthief plugin to get dominant color of image  
-    // https://github.com/lokesh/color-thie 
-    // generate a color
 
+
+
+function setQuote(data) {
+    $('#quoteContent').hide().empty();
+    // set new color for the quotes
     // init quote content
-    var data = this.data,
-        quoteText = data.content,
+    var quoteText = data.content,
         author = data.title,
         $quoteContent = $(quoteText),
         $authorSpan = $('<span></span>', {
@@ -164,21 +156,27 @@ var quote = new RandomQuote(function() {
         });
 
     $quoteContent = $quoteContent.add($authorSpan);
-    $('#quoteContent').append($quoteContent);
+    // TODO: Cache all jquery variables
 
     // configure twitter share button
+    // TODO: the random quote api currently using can return quotes with word length > tweeter limit
     $('#tweet-share').attr('href', 'https://twitter.com/intent/tweet?text=' + $quoteContent.text());
-
+    $('#tumblr-share').attr('href', 'http://tumblr.com/widgets/share/tool?canonicalUrl=http://freecodecamp.org&' +
+        'data-posttyp=text&title=Quote of the day' +
+        '&content=' + $quoteContent.text());
     // fade out loading placeholder and display content
-    $('#loading-place-holder').fadeOut('slow', function() {
-        $('#quoteContainer').removeClass('is-hidden').fadeIn('slow');
-    });
-});
+    if (!$('#loading-place-holder').hasClass('is-hidden')) {
+        $('#loading-place-holder').fadeOut('slow', function() {
+            $(this).addClass('is-hidden');
+            $('#quoteContainer').removeClass('is-hidden');
+        });
+    }
 
-var photo = new RandomPhoto(function(data) {
-    var urls = data.urls;
-    loadImg(urls.thumb, urls.regular);
-});
+    setRandomColor(); // set color only after contents are appended
+
+    $('#quoteContent').append($quoteContent).fadeIn('slow');
+
+}
 
 function loadImg(urlSmall, urlBig) {
     // if large image already present remove it
@@ -195,26 +193,31 @@ function loadImg(urlSmall, urlBig) {
         }
         // load large image
     largeImg.src = urlBig;
-    // once load , load image
+    // display image when image is loaded
     largeImg.onload = function() {
         $(largeImg).addClass('img-large loaded').appendTo($imgContainer);
     }
 }
 
+// init
+var quote = new RandomQuote(function(data) {
+    setQuote(data);
+});
+
+var photo = new RandomPhoto(function(data) {
+    var urls = data.urls;
+    loadImg(urls.thumb, urls.regular);
+});
+
 
 $('#btn-nxt').click(function() {
-    // generate new set of color
-    setRandomColor();
-
     // reload image
     photo.getNext(function(data) {
         loadImg(data.urls.thumb, data.urls.regular);
     });
 
-    // reload quote
+    // getNextQuote
     quote.getNext(function(data) {
-        
+        setQuote(data);
     });
-
 });
-
